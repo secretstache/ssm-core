@@ -1,4 +1,4 @@
-# Core
+# SSM Core
 
 A collection of modules to implement custom admin and public WordPress customization for SSM projects.
 
