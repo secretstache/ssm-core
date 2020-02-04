@@ -4,7 +4,7 @@ A collection of modules to implement custom admin and public WordPress customiza
 
 ## Requirements
 
-- [PHP](https://secure.php.net/manual/en/install.php) >= 7.1.3
+- [PHP](https://secure.php.net/manual/en/install.php) >= 7.1
 - [Composer](https://getcomposer.org/download/)
 
 ## Installation
