@@ -1,0 +1,24 @@
+{
+    "name": "ssm/core",
+    "license": "MIT",
+    "description": "A collection of modules to implement custom admin and public WordPress customization for SSM projects",
+    "homepage": "https://www.secretstache.com/",
+    "authors": [
+        {
+            "name": "Rich Staats",
+            "email": "rich@secretstache.com"
+        },
+        {
+            "name": "Alexander Smulsky",
+            "email": "alex@secretstache.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SSM\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1"
+    }
+}
