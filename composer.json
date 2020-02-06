@@ -1,5 +1,6 @@
 {
     "name": "ssm/core",
+    "type": "package",
     "license": "MIT",
     "description": "A collection of modules to implement custom admin and public WordPress customization for SSM projects",
     "homepage": "https://www.secretstache.com/",
