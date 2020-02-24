@@ -17,7 +17,7 @@
     "autoload": {
         "psr-4": {
             "SSM\\": "src/",
-            "SSM\\Core": ["src/includes", "src/modules"]
+            "SSM\\Core\\": ["src/includes", "src/modules"]
         }
     },
     "require": {
