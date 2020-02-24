@@ -1,0 +1,12 @@
+{
+    "name": "Admin Cleanup",
+    "slug": "plugin_admin_cleanup",
+    "class": "SSM\\Core\\AdminCleanup",
+    "hooks": [
+        {
+            "type": "filter",
+            "name": "admin_footer_text",
+            "function": "adminFooterText"
+        }
+    ]
+}
