@@ -18,9 +18,17 @@ class Core {
 	 */
 	public function __construct() {
 
-		// $this->setFrontModules();
-		// $this->setObjectModules();
-		// $this->runSSMCLI();
+		$this->loader = new Loader();
+
+        $this->defineConstants();
+
+	}
+	
+	public function setup() {
+
+        // $this->loader->add_action('after_setup_theme', $this, 'loadModules', 100 );
+
+        add_action( 'after_setup_theme', array( $this, 'loadModules'), 100 );
 
     }
     
@@ -28,18 +36,6 @@ class Core {
 
         define( "SSM_CORE_URL", trailingslashit ( plugin_dir_url( __FILE__ ) ) );
         define( "SSM_CORE_DIR", plugin_dir_path( __FILE__ ) );
-
-    }
-
-    public function setup() {
-
-        $this->loader = new Loader();
-
-        $this->defineConstants();
-
-        // $this->loader->add_action('after_setup_theme', $this, 'loadModules', 100 );
-
-        add_action( 'after_setup_theme', array( $this, 'loadModules'), 100 );
 
     }
 
@@ -54,14 +50,14 @@ class Core {
 
         foreach ( glob(SSM_CORE_DIR . 'modules/config/*.json') as $file) {
 
-            $module = 'ssm-' . basename($file, '.json'); // ssm-admin-setup
+            $module = 'ssm-' . basename($file, '.json'); // ssm-admin-cleanup
 
             if (isset($_wp_theme_features[$module])) {
 
-                $$module = json_decode( file_get_contents( $file ), true ); // $required_plugins = array( ... )
+                $$module = json_decode( file_get_contents( $file ), true ); // $ssm-admin-cleanup = array( ... )
 
-				if ( isset( $$module["hooks"] ) && !empty( $$module["hooks"] ) ) { // if ( isset( $required_plugins["hooks"] ) && !empty( $required_plugins["hooks"] ) )
-					$this->registerModule( $$module ); // registerModule( $required_plugins )
+				if ( isset( $$module["hooks"] ) && !empty( $$module["hooks"] ) ) { // $ssm-admin-cleanup["hooks"]
+					$this->registerModule( $$module ); // registerModule( $ssm-admin-cleanup )
 				}
 
             }
@@ -77,7 +73,7 @@ class Core {
 	 */
 	private function registerModule( $module ) {
         
-        ${$module["slug"]} = new $module["class"]; //$plugin_front_setup = new "SSM\Front\FrontSetup"
+        ${$module["slug"]} = new $module["class"]; //$plugin_admin_cleanup = new "SSM\Core\AdminCleanup"
 
 		foreach ( $module["hooks"] as $hook ) {
 
@@ -86,7 +82,7 @@ class Core {
 
 			call_user_func_array(
 				array( $this->loader, "add_{$hook["type"]}" ), // array( $this->loader, "add_action" )
-				array( $hook["name"], ${$module["slug"]}, $hook["function"], $priority, $arguments ) // array( wp_enqueue_scripts, $plugin_front_setup, enqueueStyles )
+				array( $hook["name"], ${$module["slug"]}, $hook["function"], $priority, $arguments ) // array( 'init', $plugin_admin_cleanup, 'removeRoles' )
 			);
 
         }

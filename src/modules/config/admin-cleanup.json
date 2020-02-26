@@ -7,6 +7,11 @@
             "type": "filter",
             "name": "admin_footer_text",
             "function": "adminFooterText"
+        },
+        {
+            "type": "action",
+            "name": "init",
+            "function": "removeRoles"
         }
     ]
 }
