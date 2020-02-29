@@ -1,0 +1,52 @@
+{
+    "name": "White Label",
+    "slug": "plugin_white_label",
+    "class": "SSM\\Core\\WhiteLabel",
+    "hooks": [
+        {
+            "type": "action",
+            "name": "widgets_init",
+            "function": "removeWidgets"
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "removeDashboardMeta"
+        },
+        {
+            "type": "filter",
+            "name": "login_headerurl",
+            "function": "loginHeaderUrl"
+        },
+        {
+            "type": "filter",
+            "name": "login_headertext",
+            "function": "loginHeaderText"
+        },
+        {
+            "type": "action",
+            "name": "login_enqueue_scripts",
+            "function": "loginLogo"
+        },
+        {
+            "type": "filter",
+            "name": "wp_mail_from_name",
+            "function": "mailFromName"
+        },
+        {
+            "type": "filter",
+            "name": "wp_mail_from",
+            "function": "wpMailFrom"
+        },
+        {
+            "type": "action",
+            "name": "wp_before_admin_bar_render",
+            "function": "removeIconBar"
+        },
+        {
+            "type": "filter",
+            "name": "admin_footer_text",
+            "function": "adminFooterText"
+        }
+    ]
+}
