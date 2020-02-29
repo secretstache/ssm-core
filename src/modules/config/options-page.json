@@ -1,0 +1,23 @@
+{
+    "name": "Options Page",
+    "slug": "plugin_options_page",
+    "class": "SSM\\Core\\OptionsPage",
+    "hooks": [
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "ssmCoreSettings"
+        },
+        {
+            "type": "action",
+            "name": "admin_menu",
+            "function": "addSsmOptionsPage",
+            "priority": 99
+        },
+        {
+            "type": "filter",
+            "name": "admin_enqueue_scripts",
+            "function": "enqueueWpMedia"
+        }
+    ]
+}
