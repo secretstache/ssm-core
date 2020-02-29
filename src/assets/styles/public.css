@@ -1,0 +1,54 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+ .ssm-admin-menu {
+    background: #0c5072;
+    display: block;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.ssm-admin-menu .menu {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+}
+
+ .ssm-admin-menu a {
+    color: white;
+    text-transform: uppercase;
+    transition: all .3s;
+    line-height: 1;
+    text-decoration: none;
+    display: block;
+    padding: .7rem 1rem;
+    font-weight: 400;
+}
+
+.ssm-admin-menu a:hover {
+    background: white;
+    color: #0c5072;
+}
+
+.ssm-admin-menu li.env {
+	color: white;
+	line-height: 1;
+	padding: .7rem 1rem;
+	text-transform: uppercase;
+}
+
+.ssm-admin-menu li.env.env-dev,
+.ssm-admin-menu li.env.env-development,
+.ssm-admin-menu li.env.env-staging {
+	background: #b20000;
+}
+
+.ssm-admin-menu li.env.env-prod,
+.ssm-admin-menu li.env.env-production {
+	background: #248f24;
+}

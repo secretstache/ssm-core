@@ -1,0 +1,219 @@
+.login-logo-wrap {
+    width: 230px;
+}
+
+.login-logo-wrap img.login-logo {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.login-logo-wrap .media-buttons {
+    text-align: center;
+}
+
+.login-logo-wrap .media-buttons input.button {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+#helpers {
+    line-height: 2.5em;
+}
+
+#taxonomy-acf_category #acf_category-tabs,
+#taxonomy-acf_category #acf_category-adder,
+#taxonomy-acf_category #acf_category-0 {
+    display: none;
+}
+
+.wp-list-table a.row-category {
+    text-transform: capitalize;
+}
+
+#dashboard-widgets-wrap {
+    /* display: none; */
+}
+
+#wpadminbar ul li.env-dev,
+#wpadminbar ul li.env-dev:hover div,
+#wpadminbar ul li.env-development,
+#wpadminbar ul li.env-development:hover div,
+#wpadminbar ul li.env-staging,
+#wpadminbar ul li.env-staging:hover div {
+	background: #b20000 !important;
+	color: white !important;
+}
+
+#wpadminbar ul li.env-production,
+#wpadminbar ul li.env-production:hover div {
+	background: #248f24 !important;
+	color: white !important;
+}
+
+#tagsdiv-post_tag,
+table#event_tribe_organizer,
+.eventBritePluginPlug,
+#tribe_events_event_options,
+#tribe_events_catdiv {
+    display: none;
+}
+
+#edit-slug-box {
+    color: #444;
+    padding: 0;
+}
+
+#welcome-panel {
+    padding: 20px;
+}
+
+#dashboard-widgets-wrap .postbox-container .empty-container {
+    display: none;
+}
+
+.acf-field.columns-width .acf-radio-list {
+    margin-left: 20px;
+}
+
+.acf-field.columns-width .acf-radio-list li {
+    margin-right: 35px;
+}
+
+.acf-field.columns-width .acf-radio-list input {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+img.thumbs {
+    border: 1px solid #ddd;
+    max-width: 75px;
+    height: auto;
+}
+
+.acf-field.hide-label .acf-label {
+    margin: 0;
+  }
+
+  .acf-field.column-widths li {
+    position: relative;
+    margin-left: 25px;
+  }
+
+  .acf-field.column-widths .acf-radio-list input {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .acf-field.hide-label > .acf-label label {
+    display: none;
+  }
+
+  .acf-field-repeater .acf-tab-wrap.-left .acf-tab-group,
+  .layout .acf-tab-wrap.-left .acf-tab-group,
+  .acf-fields.-sidebar > .acf-tab-wrap.-left .acf-tab-group {
+    width: 74px !important;
+  }
+
+  .acf-field-repeater .acf-fields.-sidebar,
+  .layout .acf-fields.-sidebar {
+    padding-left: 74px !important;
+  }
+
+  .acf-field-repeater .acf-fields.-sidebar:before,
+  .layout .acf-fields.-sidebar:before {
+    width: 74px !important;
+  }
+
+  [data-name="modules"] > .acf-label {
+    display: none !important;
+  }
+
+  .acf-field.gallery-options .acf-radio-list input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .acf-field.gallery-options .acf-radio-list img {
+    margin-left: 20px;
+  }
+
+  .acf-field p.description a.button.cpt {
+    font-style: normal;
+    margin: 5px;
+  }
+
+  .acf-field .layout .template-inactive {
+	  color: #b20000;
+	  font-weight: bold;
+  }
+
+  .post-php a.button-primary[data-event="add-row"],
+  .post-php a.button-primary[data-event="add-row"].disabled,
+  .post-new-php a.button-primary[data-event="add-row"],
+  .post-new-php a.button-primary[data-event="add-row"].disabled {
+    background: none !important;
+    border: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    color: #0085ba !important;
+    text-decoration: underline;
+  }
+
+  .post-php a.button-primary[data-event="add-row"].disabled,
+  .post-new-php a.button-primary[data-event="add-row"].disabled {
+    opacity: 0.5;
+  }
+
+  .post-php a.button-primary[data-event="add-row"]::after,
+  .post-new-php a.button-primary[data-event="add-row"]::after {
+    content: " +";
+  }
+
+  .acf-repeater .acf-table > tbody > tr > td.acf-field-number {
+    vertical-align: middle;
+  }
+
+  .admin-credentials {
+    margin: 30px 0;
+  }
+
+  .admin-credentials .copied,
+  .admin-credentials .sent {
+	  background: #248f24 !important;
+  }
+
+  .admin-credentials .desc {
+    margin-bottom: 25px;
+  }
+
+
+  .admin-credentials p {
+	font-size: 14px;
+  }
+
+  .admin-credentials .user-pass .username {
+	  font-weight: bold;
+  }
+
+  .admin-credentials .user-pass button:nth-of-type(1) {
+	  margin-left: 15px;
+  }
+
+  .core-settings-form .form-table:nth-of-type(2) tr {
+	  display: grid;
+	  width: 200px;
+  }
+
+  .core-settings-form .form-table:nth-of-type(2) tr:nth-child(1) {
+	float: left;
+	margin-right: 50px;
+}
+
+.core-settings-form .form-table:nth-of-type(2) tr > td {
+	padding-left: 0;
+}

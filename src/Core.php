@@ -34,8 +34,11 @@ class Core {
     
     private function defineConstants() {
 
-        define( "SSM_CORE_URL", trailingslashit ( plugin_dir_url( __FILE__ ) ) );
+        define( "SSM_CORE_URL", get_template_directory_uri() . '/vendor/ssm/core/src/' );
         define( "SSM_CORE_DIR", plugin_dir_path( __FILE__ ) );
+		
+		// die(var_dump( SSM_CORE_URL ));
+		// die(var_dump( SSM_CORE_DIR ));
 
     }
 

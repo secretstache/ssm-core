@@ -4,14 +4,204 @@
     "class": "SSM\\Core\\AdminCleanup",
     "hooks": [
         {
-            "type": "filter",
-            "name": "admin_footer_text",
-            "function": "adminFooterText"
+            "type": "action",
+            "name": "admin_enqueue_scripts",
+            "function": "enqueueStyles"
+        },
+        {
+            "type": "action",
+            "name": "admin_enqueue_scripts",
+            "function": "enqueueScripts"
         },
         {
             "type": "action",
             "name": "init",
             "function": "removeRoles"
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "removeImageLink",
+            "priority": 10
+        },
+        {
+            "type": "filter",
+            "name": "tiny_mce_before_init",
+            "function": "showKitchenSink",
+            "priority": 10,
+            "arguments": 1
+        },
+        {
+            "type": "filter",
+            "name": "tiny_mce_before_init",
+            "function": "updateTinyMCE",
+            "priority": 10,
+            "arguments": 1
+        },
+        {
+            "type": "filter",
+            "name": "the_content",
+            "function": "removePtagsOnImages",
+            "priority": 10,
+            "arguments": 1
+        },
+        {
+            "type": "filter",
+            "name": "gallery_style",
+            "function": "removeGalleryStyles",
+            "priority": 10
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "forceHomepage"
+        },
+        {
+            "type": "action",
+            "name": "admin_bar_menu",
+            "function": "removeWPNodes",
+            "priority": 99
+        },
+        {
+            "type": "filter",
+            "name": "wpseo_metabox_prio",
+            "function": "yoastSeoMetaboxPriority"
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "removePostTypeSupport"
+        },
+        {
+            "type": "action",
+            "name": "user_register",
+            "function": "showWelcomeMetabox"
+        },
+        {
+            "type": "filter",
+            "name": "admin_body_class",
+            "function": "isFrontAdminBodyClass",
+            "priority": 10,
+            "arguments": 1
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "removeImageLink",
+            "priority": 10
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_get_width_values",
+            "function": "getWidthValues"
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_nopriv_get_width_values",
+            "function": "getWidthValues"
+        },
+        {
+            "type": "action",
+            "name": "acf/save_post",
+            "function": "updateWidthPostMeta",
+            "priority": 10,
+            "arguments": 1
+        },
+        {
+            "type": "action",
+            "name": "admin_bar_menu",
+            "function": "addEnvNode",
+            "arguments": 1
+        },
+        {
+            "type": "action",
+            "name": "admin_menu",
+            "function": "removeACFMenu",
+            "priority": 99
+        },
+        {
+            "type": "action",
+            "name": "init",
+            "function": "assignCategoryGroupFields",
+            "priority": 99
+        },
+        {
+            "type": "filter",
+            "name": "acf/fields/flexible_content/layout_title/name=templates",
+            "function": "updateACFSectionTitle",
+            "priority": 10,
+            "arguments": 4
+        },
+        {
+            "type": "filter",
+            "name": "acf/fields/flexible_content/layout_title/name=templates",
+            "function": "prependACFInactiveTitle",
+            "priority": 10,
+            "arguments": 4
+        },
+        {
+            "type": "action",
+            "name": "acf/input/admin_head",
+            "function": "flexibleACFContentCollapse"
+        },
+        {
+            "type": "action",
+            "name": "init",
+            "function": "createAdminUsers"
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_remove_from_admins",
+            "function": "removeFromAdmins"
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_nopriv_remove_from_admins",
+            "function": "removeFromAdmins"
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_send_admin_email",
+            "function": "sendAdminEmail"
+        },
+        {
+            "type": "action",
+            "name": "wp_ajax_nopriv_send_admin_email",
+            "function": "sendAdminEmail"
+        },
+        {
+            "type": "action",
+            "name": "init",
+            "function": "registerACFCategoryTaxonomy"
+        },
+        {
+            "type": "action",
+            "name": "init",
+            "function": "registerACFTerms"
+        },
+        {
+            "type": "action",
+            "name": "wp_before_admin_bar_render",
+            "function": "removeFromTopMenu",
+            "priority": 999,
+            "arguments": 1
+        },
+        {
+            "type": "action",
+            "name": "wp_dashboard_setup",
+            "function": "addDevelopmentLinksWidget"
+        },
+        {
+            "type": "action",
+            "name": "admin_init",
+            "function": "hideProductionACF"
+        },
+        {
+            "type": "filter",
+            "name": "display_post_states",
+            "function": "addAdminPagesPostStates",
+            "priority": 10,
+            "arguments": 2
         }
     ]
 }

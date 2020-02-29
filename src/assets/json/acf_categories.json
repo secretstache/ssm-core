@@ -1,0 +1,86 @@
+[
+    {
+        "category_name": "Modules",
+        "groups": [
+            "[Module] - Header",
+            "[Module] - Text Editor",
+            "[Module] - Button",
+            "[Module] - Image",
+            "[Module] - Video",
+            "[Module] - Form",
+            "[Module] - Map"
+        ]
+    },
+    {
+        "category_name": "Lists",
+        "groups": [
+            "[List] - Buttons"
+        ]
+    },
+    {
+        "category_name": "Components",
+        "groups": [
+            "[Component] - Header",
+            "[Component] - Text Editor",
+            "[Component] - Button",
+            "[Component] - Image",
+            "[Component] - Video",
+            "[Component] - Form",
+            "[Component] - Map"
+        ]
+    },
+    {
+        "category_name": "Options",
+        "groups": [
+            "[Option] - Admin Options",
+            "[Option] - Column Alignment",
+            "[Option] - Text Alignment",
+            "[Option] - Background",
+            "[Option] - Columns Width",
+            "[Option] - Hero Unit Height",
+            "[Option] - HTML Attributes",
+            "[Option] - Default Button Options",
+            "[Option] - Template Header",
+			"[Option] - Image Link",
+			"[Option] - Link Target",
+            "[Option] - Mobile Sort Order"
+        ]
+    },
+    {
+        "category_name": "Module Lists",
+        "groups": [
+            "[Module List] - Hero Unit",
+            "[Module List] - Templates"
+        ]
+    },
+    {
+        "category_name": "Templates",
+        "groups": [
+            "[Template] - Column(s)",
+            "[Template] - Hero Unit Columns",
+            "[Template] - Related Content",
+            "[Template] - Call to Action"
+        ]
+    },
+    {
+        "category_name": "Page UI",
+        "groups": [
+            "Layout Builder",
+            "Hero Unit",
+            "Inline Styles",
+            "Inline Scripts",
+            "Facebook Conversion Pixel"
+        ]
+    },
+    {
+        "category_name": "Settings Page UI",
+        "groups": [
+            "Logo Assets",
+            "Business Information",
+            "Social Networks",
+            "Footer Copy",
+            "Analytics",
+            "Global Inline Styles"
+        ]
+    }
+]
