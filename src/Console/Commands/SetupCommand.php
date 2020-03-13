@@ -49,8 +49,10 @@ class SetupCommand extends Command
     public function handle()
     {
 
-        // $this->files->copyDirectory("theme-boilerplate/src/Fields", "app/Fields");
-        // $this->files->deleteDirectory("theme-boilerplate/src/Fields");
+        $this->files->copyDirectory("theme-boilerplate/src/app", "app/");
+        $this->files->copyDirectory("theme-boilerplate/src/config", "config/");
+        
+        $this->files->deleteDirectory("theme-boilerplate/");
 
         return $this->info("Success.");
     }
