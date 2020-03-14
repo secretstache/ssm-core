@@ -310,6 +310,8 @@ class PublicSetup {
 
                 }
 
+                echo "<li><a href=\"" . wp_logout_url() . "\">Logout</a></li>";
+
 				echo "</ul>";
 
 			echo "</div>";
