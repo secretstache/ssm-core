@@ -26,8 +26,6 @@ class Core {
 	
 	public function setup() {
 
-        // $this->loader->add_action('after_setup_theme', $this, 'loadModules', 100 );
-
         add_action( 'after_setup_theme', array( $this, 'loadModules'), 100 );
 
     }
@@ -37,9 +35,6 @@ class Core {
         define( "SSM_CORE_URL", get_template_directory_uri() . '/vendor/ssm/core/src/' );
         define( "SSM_CORE_DIR", plugin_dir_path( __FILE__ ) );
 		
-		// die(var_dump( SSM_CORE_URL ));
-		// die(var_dump( SSM_CORE_DIR ));
-
     }
 
     /**
@@ -51,7 +46,7 @@ class Core {
 
         global $_wp_theme_features;
 
-        foreach ( glob(SSM_CORE_DIR . 'modules/config/*.json') as $file) {
+        foreach ( glob(SSM_CORE_DIR . 'config/*.json') as $file) {
 
             $module = 'ssm-' . basename($file, '.json'); // ssm-admin-cleanup
 

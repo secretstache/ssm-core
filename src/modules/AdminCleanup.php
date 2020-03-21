@@ -21,9 +21,15 @@ class AdminCleanup {
 	{
 
 		wp_enqueue_script( "ssm", SSM_CORE_URL . "assets/scripts/admin.js", array( "jquery" ), '1.0', false );
+		wp_enqueue_script( "columns_width", SSM_CORE_URL . "assets/scripts/columns_width.js", array( "jquery" ), '1.0', false );
 
 		wp_localize_script( "ssm", "custom", array( "ajax_url" => admin_url( "admin-ajax.php" )));
 		wp_localize_script( "ssm", "login_logo", array("url" => SSM_CORE_URL . "assets/images/login-logo.png" ) );
+
+		wp_localize_script( 'columns_width', 'custom', array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'stylesheet_directory' => SSM_CORE_URL . "assets/"
+		));
 
 	}
 
