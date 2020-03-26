@@ -237,3 +237,15 @@ img.swatches {
 div[data-name="option_background_color"] .acf-input input[type="radio"] {
 	margin-bottom: 9px;
 }
+
+.post-type-ssm_team_member th#default_team_headshot {
+  width: 17%;
+}
+
+.post-type-ssm_team_member th#default_team_role {
+  width: 40%;
+}
+
+.post-type-ssm_team_member #tagsdiv-ssm_team_member_role {
+  display: none;
+}
