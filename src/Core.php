@@ -11,13 +11,19 @@ class Core {
 	 * The loader that"s responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 */
-    protected $loader;
+	protected $loader;
+	
+	/**
+	 * The unique identifier of this plugin.
+	 */
+	protected $pluginName;
     
     /**
 	 * Define the core functionality of the plugin.
 	 */
 	public function __construct() {
 
+		$this->pluginName = 'ssm/core';
 		$this->loader = new Loader();
 
         $this->defineConstants();
@@ -32,7 +38,7 @@ class Core {
     
     private function defineConstants() {
 
-        define( "SSM_CORE_URL", get_template_directory_uri() . '/vendor/ssm/core/src/' );
+		define( "SSM_CORE_URL", get_template_directory_uri() . '/vendor/' . $this->pluginName . '/src/' );
         define( "SSM_CORE_DIR", plugin_dir_path( __FILE__ ) );
 		
     }
