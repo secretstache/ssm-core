@@ -32,10 +32,8 @@
         },
         {
             "type": "action",
-            "name": "ssm_gtm_body_insert",
-            "function": "addGoogleTagManagerNoScript",
-            "priority": 10,
-            "arguments": 1
+            "name": "wp_body_open",
+            "function": "addGoogleTagManagerNoScript"
         },
         {
             "type": "action",

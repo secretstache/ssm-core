@@ -115,12 +115,12 @@ class PublicSetup {
 	/**
      * Add Google Tag Manager <noscript>
      */
-	public function addGoogleTagManagerNoScript( $gtm ) {
-		?>
+	public function addGoogleTagManagerNoScript() {
 
-		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=<?php echo $gtm; ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        if ( $gtm = get_field("google_tag_manager_id", "options") ) {
+            echo "<noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=" . $gtm . "\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>";
+        }
 
-		<?php
 	}
 
     /**
