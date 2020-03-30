@@ -80,6 +80,11 @@
             "name": "wp_footer",
             "function": "replaceAdminBar",
             "priority": 99
+        },
+        {
+            "type": "action",
+            "name": "wp_head",
+            "function": "replaceMetaViewport"
         }
     ]
 }
