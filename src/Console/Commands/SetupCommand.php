@@ -51,6 +51,7 @@ class SetupCommand extends Command
 
         $this->files->copyDirectory("theme-boilerplate/src/app", "app/");
         $this->files->copyDirectory("theme-boilerplate/src/config", "config/");
+        $this->files->copyDirectory("theme-boilerplate/src/resources", "resources/");
         
         $this->files->deleteDirectory("theme-boilerplate/");
 
