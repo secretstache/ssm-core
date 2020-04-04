@@ -25,7 +25,7 @@
 
             var background_color_rows = el.find('div[data-name="option_background_color"]');
 
-            var column_rows = el.find('div[data-name="template_columns"]').slice(1);
+            var column_rows = el.find('div[data-name="columns"]').slice(1);
             var page_id = $("#post_ID").val();
             var current_values = [];
     
@@ -214,7 +214,7 @@
     
         function changeOptions( el, action ) {
 
-            var column_rows = $('div[data-name="template_columns"]').slice(1);
+            var column_rows = $('div[data-name="columns"]').slice(1);
             $("input#columns_count").val(column_rows.length);
     
             var node_length = el
