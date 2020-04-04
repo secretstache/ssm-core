@@ -572,4 +572,15 @@ class AdminCleanup {
 
 	}
 
+	/**
+	 * Add 'Paste Text' tool to Basic Editor
+	 */
+	public function addPasteTextToBasicEditor( $toolbars ) {
+
+		$toolbars['Basic'][1][] = 'pastetext'; 
+
+		return $toolbars;
+
+	}
+
 }

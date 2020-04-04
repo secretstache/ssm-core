@@ -202,6 +202,11 @@
             "function": "addAdminPagesPostStates",
             "priority": 10,
             "arguments": 2
+        },
+        {
+            "type": "filter",
+            "name": "acf/fields/wysiwyg/toolbars",
+            "function": "addPasteTextToBasicEditor"
         }
     ]
 }
