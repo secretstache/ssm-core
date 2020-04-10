@@ -37,44 +37,7 @@ class OptionsPage {
             [ "members" => get_users( array("role" => "administrator") ) ]
 		);
 
-        add_settings_field(
-            "ssm-core-acf-admin-users",
-            "Users with ACF access",
-            array( $this, "ssmCoreACFAdminUsers" ),
-            "ssm_core",
-            "ssm-core-acf-options",
-            [ "admins" => get_users( array("role" => "administrator") ) ]
-		);
-
     }
-
-    /**
-     * Add Admin users who need access to ACF field
-     */
-	function ssmCoreACFAdminUsers( $args )
-	{
-
-        $admins = $args["admins"];
-        $acfAdmins = get_option("ssm_core_acf_admin_users") != NULL ? get_option("ssm_core_acf_admin_users") : array();
-
-        ?>
-
-        <select id="ssm-core-acf-admin-users" name="ssm_core_acf_admin_users[]" multiple style="min-width: 200px;">
-
-            <?php foreach ( $admins as $admin ) { ?>
-
-                <?php $selected = in_array( $admin->ID, $acfAdmins ) ? " selected" : ""; ?>
-
-                <option value="<?php echo $admin->ID; ?>"<?php echo $selected; ?>>
-                    <?php echo $admin->user_login; ?>
-                </option>
-
-            <?php } ?>
-
-        </select>
-
-        <?php
-	}
 
 	/**
      * Add SSM Team Members

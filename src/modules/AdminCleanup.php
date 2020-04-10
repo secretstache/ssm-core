@@ -249,73 +249,6 @@ class AdminCleanup {
 	}
 
 	/**
-	 * Remove ACF Menu for non-checked users
-	 *
-	 */
-	public function removeACFMenu() {
-
-		$acfAdmins = get_option("ssm_core_acf_admin_users") != NULL ? get_option("ssm_core_acf_admin_users") : array(1);
-
-		$current_user = wp_get_current_user();
-
-		if ( $acfAdmins != NULL ) {
-
-			if( !in_array( $current_user->ID, $acfAdmins ) ) {
-
-				remove_menu_page("edit.php?post_type=acf-field-group");
-
-				# Check current admin page.
-				if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'acf-field-group' ){
-
-					wp_redirect( admin_url( '/' ), 301 );
-					exit;
-
-				}
-
-			}
-
-		}
-
-	}
-
-	/**
-	 * Assign corresponding categories to ACF group fields
-	 *
-	 */
-	public function assignCategoryGroupFields() {
-
-        $items = json_decode( file_get_contents( SSM_CORE_DIR . "assets/json/acf_categories.json" ), true );
-
-        foreach( $items as $item ) {
-
-            $category_name = $item["category_name"];
-            $groups = $item["groups"];
-
-            $category = get_term_by( "name", $category_name, "acf_category" );
-
-            foreach( $groups as $group_name ) {
-
-                $group = get_page_by_title( $group_name, OBJECT, "acf-field-group" );
-
-                if( $group ) {
-
-                    $current_categories = wp_get_post_terms( $group->ID, "acf_category" );
-
-                    if ( empty( $current_categories ) ) {
-
-                        wp_set_object_terms( $group->ID, array( $category->term_id ), "acf_category" );
-
-                    }
-
-                }
-
-            }
-
-        }
-
-	}
-
-	/**
 	 * Dynamically Update The Flexible Content Label
 	 */
 	public function updateACFSectionTitle( $title, $field, $layout, $i ) {
@@ -419,29 +352,6 @@ class AdminCleanup {
 
 	}
 
-	public function registerACFCategoryTaxonomy() {
-
-		register_taxonomy( "acf_category", "acf-field-group", array(
-
-			"hierarchical"		=> false
-
-         ) );
-
-	}
-
-	public function registerACFTerms() {
-
-        wp_insert_term("Modules", "acf_category");
-        wp_insert_term("Lists", "acf_category");
-        wp_insert_term("Components", "acf_category");
-        wp_insert_term("Options", "acf_category");
-        wp_insert_term("Module Lists", "acf_category");
-        wp_insert_term("Templates", "acf_category");
-        wp_insert_term("Page UI", "acf_category");
-        wp_insert_term("Settings Page UI", "acf_category");
-
-	}
-
 	/**
 	 * Remove unnecessary items from Top Menu
 	 *
@@ -484,30 +394,7 @@ class AdminCleanup {
 		$response .= " | " . "<a href=\"" . admin_url('options-general.php?page=menu_editor') . "\">Menu Editor Pro</a>";
 		$response .= " | " . "<a href=\"" . admin_url('tools.php?page=wp-migrate-db-pro') . "\">Migrate DB Pro</a>";
 
-		$acfAdmins = get_option("ssm_core_acf_admin_users") ? get_option("ssm_core_acf_admin_users") : array(1);
-
-		$current_user = wp_get_current_user();
-
-		if ( $acfAdmins != NULL ) {
-
-			if( in_array( $current_user->ID, $acfAdmins ) ) {
-
-				$response .= " | " . "<a href=\"" . admin_url('edit.php?post_type=acf-field-group') . "\">Custom Fields</a>";
-
-			}
-
-		}
-
 		echo $response;
-	}
-
-	function hideProductionACF() {
-
-		# Check SSM Environment.
-		if ( defined( "SSM_ENVIRONMENT" ) && ( $env = SSM_ENVIRONMENT ) && ( $env == 'production' ) ) {
-			echo "<style type=\"text/css\">.post-type-acf-field-group ul.subsubsub { display: none; } </style>";
-		}
-
 	}
 
 	/**
@@ -532,6 +419,13 @@ class AdminCleanup {
 
 		return $toolbars;
 
+	}
+
+	/**
+	 * Remove ACF menu item
+	 */
+	public function hideACFMenu() {
+		return false;
 	}
 
 }
