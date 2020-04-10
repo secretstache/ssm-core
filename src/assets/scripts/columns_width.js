@@ -1,7 +1,6 @@
 (function( $ ) {
 
     $(document).ready(function($) {
-
         let custom = window.custom;
         let acf = window.acf;
 
@@ -40,7 +39,7 @@
 
             populateBgInputs(el);
             populateColumnsLayoutWidth(el);
-            populateColumnsLayoutMobileOrder(el);
+            populateColumnsLayoutMobileOrder();
         }
 
         /* Populate inputs for bg color */
@@ -224,9 +223,14 @@
         }
 
         /* Populate options for columns order configuration */
-        function populateColumnsLayoutMobileOrder() {
-            let column_rows = document.querySelectorAll('div[data-name="columns"]');
-            column_rows = Array.prototype.slice.call(column_rows).slice(1);
+        function populateColumnsLayoutMobileOrder(el) {
+            let column_rows = [];
+
+            if ( typeof el !== 'undefined' ) {
+                column_rows = el.find('div[data-name="columns"]');
+            } else {
+                column_rows = $('div[data-name="columns"]').slice(1);
+            }
 
             $.each(column_rows, function() {
                 let node_length = $(this)
@@ -262,6 +266,9 @@
                 /* Init sortable functionality */
                 ul.sortable({
                     placeholder: "sortable-placeholder",
+                    sort: function() {
+
+                    },
                     update: function() {
                         const order = $(this)
                             .sortable('toArray')
@@ -338,7 +345,7 @@
                         ul.append(li);
                     }
                 } else {
-                    populateColumnsLayoutMobileOrder(el);
+                    populateColumnsLayoutMobileOrder(mobile_order_option.closest('.layout'));
                 }
             }
         }
