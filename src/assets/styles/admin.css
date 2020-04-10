@@ -178,32 +178,6 @@ img.thumbs {
   vertical-align: middle;
 }
 
-.admin-credentials {
-  margin: 30px 0;
-}
-
-.admin-credentials .copied,
-.admin-credentials .sent {
-  background: #248f24 !important;
-}
-
-.admin-credentials .desc {
-  margin-bottom: 25px;
-}
-
-
-.admin-credentials p {
-font-size: 14px;
-}
-
-.admin-credentials .user-pass .username {
-  font-weight: bold;
-}
-
-.admin-credentials .user-pass button:nth-of-type(1) {
-  margin-left: 15px;
-}
-
 .core-settings-form .form-table:nth-of-type(2) tr {
   display: grid;
   width: 200px;

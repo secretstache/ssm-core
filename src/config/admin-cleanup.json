@@ -146,11 +146,6 @@
         },
         {
             "type": "action",
-            "name": "init",
-            "function": "createAdminUsers"
-        },
-        {
-            "type": "action",
             "name": "wp_ajax_remove_from_admins",
             "function": "removeFromAdmins"
         },

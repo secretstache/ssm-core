@@ -374,47 +374,6 @@ class AdminCleanup {
 	}
 
 	/**
-	 * Create admin users on project setup
-	 */
-	public function createAdminUsers() {
-
-		if ( !username_exists( "alex" ) ) {
-
-			$alex_pass = wp_generate_password();
-			$alex_id = wp_create_user( "alex", $alex_pass, "alex@secretstache.com" );
-
-			if ( $alex_id ) {
-
-				add_option( "alex_pass", $alex_pass );
-
-				$alex = new \WP_User( $alex_id );
-				$alex->remove_role( "subscriber" );
-				$alex->add_role( "administrator" );
-
-			}
-
-		}
-
-		if ( !username_exists( "jrstaatsiii" ) ) {
-
-			$rich_pass = wp_generate_password();
-			$rich_id = wp_create_user( "jrstaatsiii", $rich_pass, "rich@secretstache.com" );
-
-			if ( $rich_id ) {
-
-				add_option( "rich_pass", $rich_pass );
-
-				$rich = new \WP_User( $rich_id );
-				$rich->remove_role( "subscriber" );
-				$rich->add_role( "administrator" );
-
-			}
-
-		}
-
-	}
-
-	/**
 	 * Fires when clicked "remove" button in Admin Credentials section
 	 */
 	public function removeFromAdmins()
