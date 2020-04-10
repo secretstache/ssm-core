@@ -545,17 +545,9 @@ class AdminCleanup {
 	function hideProductionACF() {
 
 		# Check SSM Environment.
-		if ( defined( "SSM_ENVIRONMENT" ) && ( $env = SSM_ENVIRONMENT ) && ( $env == 'production' ) ) : ?>
-
-			<style type="text/css">
-
-				.post-type-acf-field-group ul.subsubsub {
-					display: none;
-				}
-
-			</style>
-
-		<?php endif;
+		if ( defined( "SSM_ENVIRONMENT" ) && ( $env = SSM_ENVIRONMENT ) && ( $env == 'production' ) ) {
+			echo "<style type=\"text/css\">.post-type-acf-field-group ul.subsubsub { display: none; } </style>";
+		}
 
 	}
 

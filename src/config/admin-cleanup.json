@@ -193,7 +193,7 @@
         },
         {
             "type": "action",
-            "name": "admin_init",
+            "name": "admin_head",
             "function": "hideProductionACF"
         },
         {
