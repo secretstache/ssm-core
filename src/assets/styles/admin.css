@@ -223,3 +223,31 @@ div[data-name="option_background_color"] .acf-input input[type="radio"] {
 .post-type-ssm_team_member #tagsdiv-ssm_team_member_role {
   display: none;
 }
+
+.column-layout-mobile-order input {
+  display: none;
+}
+
+.column-layout-mobile-order ul.acf-radio-list.acf-hl li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 20px 6px 0;
+  background: #DDDDDD;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.column-layout-mobile-order ul.acf-radio-list.acf-hl li.sortable-placeholder {
+  position: relative !important;
+  top: -3px !important;
+  left: -3px !important;
+  margin-bottom: 0;
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border: 2px dashed #DDDDDD;
+}
