@@ -271,7 +271,13 @@ class PublicSetup {
                     echo "<li class=\"env env-" . sanitize_title_with_dashes( $env ) . "\">" . ucfirst( $env ) . " Environment</li>";
                 }
 
-                if ( is_page() || is_single() ) {
+                if( is_home() ) {
+
+                    $edit_post_link = get_edit_post_link( get_option( 'page_for_posts' ) );
+
+                    $post_label = "Page";
+
+                } elseif ( is_page() || is_single() ) {
 
                     $edit_post_link = get_edit_post_link( $post->ID );
 
