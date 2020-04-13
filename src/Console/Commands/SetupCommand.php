@@ -12,7 +12,7 @@ class SetupCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ssm:setup';
+    protected $signature = 'ssm:setup {--no-scaffold}';
 
     /**
      * The description of the command.
@@ -49,12 +49,17 @@ class SetupCommand extends Command
     public function handle()
     {
 
-        $this->files->copyDirectory("theme-boilerplate/src/app", "app/");
-        $this->files->copyDirectory("theme-boilerplate/src/config", "config/");
-        $this->files->copyDirectory("theme-boilerplate/src/resources", "resources/");
+        if( !$this->option( "no-scaffold" ) ) {
+
+            $this->files->copyDirectory("theme-boilerplate/src/app", "app/");
+            $this->files->copyDirectory("theme-boilerplate/src/config", "config/");
+            $this->files->copyDirectory("theme-boilerplate/src/resources", "resources/");
+
+        }
         
         $this->files->deleteDirectory("theme-boilerplate/");
 
         return $this->info("Success.");
+        
     }
 }
