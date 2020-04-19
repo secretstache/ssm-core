@@ -12,7 +12,7 @@ class SetupCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ssm:setup {--no-scaffold}';
+    protected $signature = 'ssm:setup {--backend} {--static}';
 
     /**
      * The description of the command.
@@ -47,14 +47,24 @@ class SetupCommand extends Command
      * @return mixed
      */
     public function handle()
-    {
+    {   
 
-        if( !$this->option( "no-scaffold" ) ) {
+        if( $this->option( "backend" ) || $this->option( "static" ) ) {
+
+            // Do Nothing
+
+        } else {
+
+            //Scaffolding files
 
             $this->files->copyDirectory("theme-boilerplate/src/app", "app/");
             $this->files->copyDirectory("theme-boilerplate/src/config", "config/");
             $this->files->copyDirectory("theme-boilerplate/src/resources", "resources/");
 
+        }
+
+        if( !$this->option( "static" ) ) {
+            $this->files->deleteDirectory("static/");
         }
         
         $this->files->deleteDirectory("theme-boilerplate/");
