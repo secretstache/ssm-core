@@ -67,7 +67,7 @@ class WhiteLabel {
 		$defaultLogo = SSM_CORE_URL . "assets/images/login-logo.png";
 		$background_image =  get_option("ssm_core_login_logo") != NULL ? get_option("ssm_core_login_logo") : $defaultLogo;
 
-        if (!is_user_logged_in() && $GLOBALS["pagenow"] === "wp-login.php" ):
+        if ( $GLOBALS["pagenow"] === "wp-login.php" ):
             
     ?>
         <style type="text/css">

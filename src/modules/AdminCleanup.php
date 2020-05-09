@@ -307,26 +307,6 @@ class AdminCleanup {
 	}
 
 	/**
-	 * Fires when clicked "remove" button in Admin Credentials section
-	 */
-	public function removeFromAdmins()
-	{
-
-		$action = $_POST["custom_action"];
-		$data = $_POST["custom_value"];
-
-		if ( $action == "remove-user" ) {
-			$response = wp_delete_user( username_exists("admin"), $data );
-		} elseif ( $action == "remove-option" ) {
-			$response = delete_option( $data );
-		}
-
-		echo json_encode( $response );
-		wp_die();
-
-	}
-
-	/**
 	 * Fires when clicked 'Send Email' button in Admin Credentials section
 	 */
 	public function sendAdminEmail()
