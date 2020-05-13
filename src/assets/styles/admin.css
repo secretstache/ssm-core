@@ -251,3 +251,7 @@ div[data-name="option_background_color"] .acf-input input[type="radio"] {
   background: #fff;
   border: 2px dashed #DDDDDD;
 }
+
+#toplevel_page_edit-post_type-acf-field-group {
+  display: none;
+}

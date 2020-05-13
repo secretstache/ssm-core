@@ -401,11 +401,4 @@ class AdminCleanup {
 
 	}
 
-	/**
-	 * Remove ACF menu item
-	 */
-	public function hideACFMenu() {
-		return false;
-	}
-
 }

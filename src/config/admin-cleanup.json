@@ -155,11 +155,6 @@
             "type": "filter",
             "name": "acf/fields/wysiwyg/toolbars",
             "function": "addPasteTextToBasicEditor"
-        },
-        {
-            "type": "filter",
-            "name": "acf/settings/show_admin",
-            "function": "hideACFMenu"
         }
     ]
 }
