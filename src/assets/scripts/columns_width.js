@@ -232,8 +232,10 @@
                 column_rows = $('div[data-name="columns"]').slice(1);
             }
 
+            let node_length = 0;
+
             $.each(column_rows, function() {
-                let node_length = $(this)
+                node_length = $(this)
                     .find(".acf-table")
                     .children("tbody")
                     .children("tr").length;
@@ -280,6 +282,12 @@
                         order_input.val(order.join('_'));
                     },
                 });
+
+                if (node_length > 1) {
+                    mobile_order_option.show();
+                } else {
+                    mobile_order_option.hide();
+                }
             });
         }
 
@@ -338,11 +346,18 @@
                         }
                     } else {
                         node_length -= 1;
+
                         order.push(node_length);
                         order_input.val(order.join('_'));
 
                         const li = '<li id="sort_' + node_length + '">' + node_length + '</li>';
                         ul.append(li);
+                    }
+
+                    if (node_length > 1) {
+                        mobile_order_option.show();
+                    } else {
+                        mobile_order_option.hide();
                     }
                 } else {
                     populateColumnsLayoutMobileOrder(mobile_order_option.closest('.layout'));
