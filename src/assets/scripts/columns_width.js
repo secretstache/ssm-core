@@ -236,11 +236,7 @@
 
             $.each(column_rows, function() {
                 node_length = $(this)
-                    .find(".acf-table")
-                    .children("tbody")
-                    .children("tr").length;
-
-                node_length -= 1;
+                    .find('> .acf-input > .acf-repeater > .acf-table > tbody > tr:not(.acf-clone)').length;
 
                 const mobile_order_option = $(this)
                     .parents("div.acf-fields")
@@ -250,11 +246,14 @@
                 let order_input_value = order_input.val();
                 let order = order_input_value ? order_input_value.split('_') : [];
 
-                // prevent situation when column exists but order input is empty, i.e. when column created automatically via add template button
+                // prevent situation when columns exists but order input is empty
                 if ( !order.length && node_length ) {
-                    order = [1];
-                    order_input_value = 1;
-                    order_input.val(1)
+                    for(let i = 1; i <= node_length; i++) {
+                        order.push(i);
+                    }
+
+                    order_input_value = order.join('_');
+                    order_input.val(order_input_value)
                 }
 
                 const ul = $('<ul class="acf-radio-list acf-hl"></ul>');
@@ -268,9 +267,6 @@
                 /* Init sortable functionality */
                 ul.sortable({
                     placeholder: "sortable-placeholder",
-                    sort: function() {
-
-                    },
                     update: function() {
                         const order = $(this)
                             .sortable('toArray')
@@ -299,69 +295,62 @@
         }
 
         function columnLayoutMobileOrderOptionsChange(el, action) {
-            let column_count = parseInt( el
-                .parents(".acf-fields")
-                .prevAll(".acf-fc-layout-handle")
-                .find(".acf-fc-layout-order")
-                .text()
-            );
-
             let node_length = el
-                .parents(".acf-table")
-                .children("tbody")
-                .children("tr").length;
+                .closest('[data-name="columns"]')
+                .find('> .acf-input > .acf-repeater > .acf-table > tbody > tr:not(.acf-clone)').length;
 
-            if ( !isNaN(column_count) ) {
-                const mobile_order_option = el
-                    .parents("div.acf-fields")
-                    .children('div[data-name="option_columns_mobile_order"]');
+            const mobile_order_option = el
+                .closest("div.acf-fields")
+                .find('div[data-name="option_columns_mobile_order"]');
 
-                const order_input = mobile_order_option.find('input[name*="option_columns_mobile_order"]');
-                const order_input_value = order_input.val();
+            const order_input = mobile_order_option.find('input[name*="option_columns_mobile_order"]');
+            const order_input_value = order_input.val();
 
-                let order = order_input_value ? order_input_value.split('_') : [];
-                let ul = mobile_order_option.find("ul.acf-radio-list");
+            let order = order_input_value
+                ? order_input_value.split('_')
+                : [];
 
-                if (ul.length) {
-                    if (action === "remove") {
-                        node_length -= 2;
-                        ul.empty();
+            let ul = mobile_order_option.find("ul.acf-radio-list");
 
-                        const new_order = order.filter((item) => {
-                            return item <= node_length;
+            if (ul.length) {
+                if (action === "remove") {
+                    ul.empty();
+
+                    const new_order = order.filter((item) => {
+                        return item < node_length;
+                    });
+
+                    if (new_order.length) {
+                        const li = [];
+
+                        new_order.forEach((order) => {
+                            li.push($('<li id="sort_' + order + '">' + order + '</li>'))
                         });
 
-                        if (new_order.length) {
-                            const li = [];
-
-                            new_order.forEach((order) => {
-                                li.push($('<li id="sort_' + order + '">' + order + '</li>'))
-                            });
-
-                            ul.append(li);
-
-                            order_input.val(new_order.join('_'));
-                        } else {
-                            order_input.val("");
-                        }
-                    } else {
-                        node_length -= 1;
-
-                        order.push(node_length);
-                        order_input.val(order.join('_'));
-
-                        const li = '<li id="sort_' + node_length + '">' + node_length + '</li>';
                         ul.append(li);
+
+                        order_input.val(new_order.join('_'));
+                    } else {
+                        order_input.val("");
                     }
 
-                    if (node_length > 1) {
-                        mobile_order_option.show();
-                    } else {
-                        mobile_order_option.hide();
-                    }
+                    node_length -= 1;
                 } else {
-                    populateColumnsLayoutMobileOrder(mobile_order_option.closest('.layout'));
+                    order.push(node_length);
+                    order_input.val(order.join('_'));
+
+                    const li = '<li id="sort_' + node_length + '">' + node_length + '</li>';
+                    ul.append(li);
+
                 }
+
+                if (node_length > 1) {
+                    mobile_order_option.show();
+                } else {
+                    mobile_order_option.hide();
+                }
+            } else {
+                populateColumnsLayoutMobileOrder(mobile_order_option.closest('.acf-fields'));
             }
         }
 
