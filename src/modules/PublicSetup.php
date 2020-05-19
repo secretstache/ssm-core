@@ -244,7 +244,7 @@ class PublicSetup {
 	 */
 	public function removeAdminBar() {
 
-		show_admin_bar(false);
+		return false;
 
 	}
 

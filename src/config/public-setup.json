@@ -71,8 +71,8 @@
             "function": "saveReminderNotice"
         },
         {
-            "type": "action",
-            "name": "after_setup_theme",
+            "type": "filter",
+            "name": "show_admin_bar",
             "function": "removeAdminBar"
         },
         {
