@@ -192,26 +192,6 @@ img.thumbs {
 	padding-left: 0;
 }
 
-img.swatches {
-	width: 20px;
-	height: 20px;
-}
-
-.acf-field-radio.swatches .acf-radio-list li label {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	align-items: center;
-}
-
-.acf-field-radio.swatches .acf-radio-list li label input {
-	margin-bottom: -2px;
-}
-
-div[data-name="option_background_color"] .acf-input input[type="radio"] {
-	margin-bottom: 9px;
-}
-
 .post-type-ssm_team_member th#default_team_headshot {
   width: 17%;
 }
@@ -254,4 +234,20 @@ div[data-name="option_background_color"] .acf-input input[type="radio"] {
 
 #toplevel_page_edit-post_type-acf-field-group {
   display: none;
+}
+
+.acf-field-radio.swatches .acf-radio-list li label {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+}
+
+.acf-field-radio.swatches .acf-radio-list li label input {
+	margin-top: 2px;
+}
+
+.acf-field-radio.swatches img.color {
+	width: 20px;
+	height: 20px;
 }
