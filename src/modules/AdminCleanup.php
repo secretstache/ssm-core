@@ -84,7 +84,13 @@ class AdminCleanup {
 	 */
 	public function removePtagsOnImages( $content )
 	{
-		return preg_replace( "/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU", "\1\2\3", $content );
+		
+		if ( !apply_filters( 'ssm_disable_image_tags', $content ) ) {
+			return $content;
+		} else {
+			return preg_replace( "/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU", "\1\2\3", $content );
+		}
+		
 	}
 
 	/**
@@ -382,7 +388,7 @@ class AdminCleanup {
 	 */
 	public function addAdminPagesPostStates( $post_states, $post ) {
 
-		if( get_page_template_slug( $post ) == 'views/template-landing-page.blade.php' ) {
+		if( get_page_template_slug( $post ) == 'template-landing-page.blade.php' ) {
 			$post_states[] = 'Landing Page';
 		}
 

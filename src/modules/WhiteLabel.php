@@ -46,7 +46,7 @@ class WhiteLabel {
     /**
 	 * Makes the login screen"s logo link to your homepage, instead of to WordPress.org
 	 */
-	public function loginHeaderUrl()
+	public function loginHeaderUrl( $url )
 	{
 		return home_url();
 	}
