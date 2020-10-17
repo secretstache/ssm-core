@@ -85,6 +85,18 @@
             "type": "action",
             "name": "wp_head",
             "function": "replaceMetaViewport"
+        },
+        {
+            "type": "action",
+            "name": "admin_head",
+            "function": "addUserbackScript",
+            "priority": 99
+        },
+        {
+            "type": "action",
+            "name": "wp_head",
+            "function": "addUserbackScript",
+            "priority": 99
         }
     ]
 }

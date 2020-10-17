@@ -19,12 +19,14 @@ class OptionsPage {
 		register_setting( "ssm-core-settings-group", "ssm_core_login_logo" );
 		register_setting( "ssm-core-settings-group", "ssm_core_login_logo_width" );
         register_setting( "ssm-core-settings-group", "ssm_core_login_logo_height" );
+        register_setting( "ssm-core-settings-group", "ssm_core_userback_script" );
 
 		add_settings_section( "ssm-core-agency-options", "Agency Options", array( $this, "ssmCoreAgencyOptions"), "ssm_core");
 
 		add_settings_field( "ssm-core-agency-name", "Agency Name", array( $this, "ssmCoreAgencyName" ), "ssm_core", "ssm-core-agency-options" );
 		add_settings_field( "ssm-core-agency-url", "Agency URL", array( $this, "ssmCoreAgencyUrl" ), "ssm_core", "ssm-core-agency-options" );
         add_settings_field( "ssm-core-login-logo", "Login Logo", array( $this, "ssmCoreLoginLogo" ), "ssm_core", "ssm-core-agency-options" );
+        add_settings_field( "ssm-core-userback-script", "Userback Script", array( $this, "ssmCoreUserbackScript" ), "ssm_core", "ssm-core-agency-options" );
 
         add_settings_section( "ssm-core-acf-options", "Access Restriction", array( $this, "ssmAcfOptions" ), "ssm_core" );
 
@@ -119,6 +121,22 @@ class OptionsPage {
             <input type="hidden" id="ssm-core-login-logo-height" name="ssm_core_login_logo_height" value="auto">
 
         </div>
+
+    <?php
+
+    }
+    
+    /**
+     * Add "Userback Script" field
+     */
+    public function ssmCoreUserbackScript()
+    {
+
+        $userback_script = get_option("ssm_core_userback_script") != NULL ? esc_attr( get_option("ssm_core_userback_script") ) : "";
+
+    ?>
+
+        <textarea name="ssm_core_userback_script" cols="45" rows="10"><?php echo $userback_script ?></textarea>
 
     <?php
 

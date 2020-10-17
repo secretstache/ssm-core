@@ -319,5 +319,17 @@ class PublicSetup {
     public function replaceMetaViewport() {
         echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0\">";
     }
+
+    /**
+	 * Add Userback script
+	 *
+	 */
+    public function addUserbackScript() {
+
+        if ( ( $userback_script = get_option("ssm_core_userback_script") ) && ( !empty( $userback_script ) ) && ( is_user_logged_in() ) ) {
+            echo $userback_script;
+        }
+        
+    }
     
 }
