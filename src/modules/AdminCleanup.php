@@ -407,4 +407,15 @@ class AdminCleanup {
 
 	}
 
+	/**
+	 * Remove drafts from all relationship and post object fields
+	 */
+	public function removeDraftsFromRelationshipFields( $args, $field, $post_id ) {
+
+		$args['post_status'] = ['publish'];
+	
+		return $args;
+
+	}
+
 }

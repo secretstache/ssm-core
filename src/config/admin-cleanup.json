@@ -155,6 +155,20 @@
             "type": "filter",
             "name": "acf/fields/wysiwyg/toolbars",
             "function": "addPasteTextToBasicEditor"
+        },
+        {
+            "type": "filter",
+            "name": "acf/fields/relationship/query",
+            "function": "removeDraftsFromRelationshipFields",
+            "priority": 10,
+            "arguments": 3
+        },
+        {
+            "type": "filter",
+            "name": "acf/fields/post_object/query",
+            "function": "removeDraftsFromRelationshipFields",
+            "priority": 10,
+            "arguments": 3
         }
     ]
 }
