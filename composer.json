@@ -21,9 +21,6 @@
         }
     },
     "require": {
-        "php": ">=7.1",
-        "johnbillion/extended-cpts": "^4.3",
-        "stoutlogic/acf-builder": "^1.9",
-        "ssm/required-plugins": "^1.0"
+        "php": ">=7.1"
     }
 }
