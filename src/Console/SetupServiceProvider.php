@@ -2,7 +2,7 @@
 
 namespace SSM\Console;
 
-use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use SSM\Console\Commands\SetupCommand;
 
 class SetupServiceProvider extends ServiceProvider
