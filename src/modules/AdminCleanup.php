@@ -66,7 +66,7 @@ class AdminCleanup {
 		$args["wordpress_adv_hidden"] = false;
 		return $args;
     }
-    
+
 	/**
 	 * Modifies the TinyMCE settings array
 	 */
@@ -84,13 +84,13 @@ class AdminCleanup {
 	 */
 	public function removePtagsOnImages( $content )
 	{
-		
+
 		if ( !apply_filters( 'ssm_disable_image_tags', $content ) ) {
 			return $content;
 		} else {
 			return preg_replace( "/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU", "\1\2\3", $content );
 		}
-		
+
 	}
 
 	/**
@@ -135,15 +135,6 @@ class AdminCleanup {
 	public function yoastSeoMetaboxPriority()
 	{
 		return "low";
-	}
-
-	/**
-	 * Remove Editor Support on Pages (Replaced with SSMPB)
-	 */
-	public function removePostTypeSupport()
-	{
-		remove_post_type_support( "page", "editor" );
-		remove_post_type_support( "page", "thumbnail" );
 	}
 
 	/**
@@ -401,7 +392,7 @@ class AdminCleanup {
 	 */
 	public function addPasteTextToBasicEditor( $toolbars ) {
 
-		$toolbars['Basic'][1][] = 'pastetext'; 
+		$toolbars['Basic'][1][] = 'pastetext';
 
 		return $toolbars;
 
@@ -413,7 +404,7 @@ class AdminCleanup {
 	public function removeDraftsFromRelationshipFields( $args, $field, $post_id ) {
 
 		$args['post_status'] = ['publish'];
-	
+
 		return $args;
 
 	}
