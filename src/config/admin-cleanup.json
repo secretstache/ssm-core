@@ -69,11 +69,6 @@
         },
         {
             "type": "action",
-            "name": "admin_init",
-            "function": "removePostTypeSupport"
-        },
-        {
-            "type": "action",
             "name": "user_register",
             "function": "showWelcomeMetabox"
         },
